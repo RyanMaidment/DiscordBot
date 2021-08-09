@@ -2,12 +2,14 @@
 import os
 from discord.ext import commands
 
-TOKEN = 
+import secret
 
-bot = commands.Bot(command_prefix='!')
+TOKEN = secret.TOKEN
+
+client = commands.Bot(command_prefix="!")
 
 for filename in os.listdir('bot/cogs'):
     if filename.endswith('.py'):
-        bot.load_extension(f'cogs.{filename[:-3]}')
+        client.load_extension(f'cogs.{filename[:-3]}')
 
-bot.run(TOKEN)
+client.run(TOKEN)
